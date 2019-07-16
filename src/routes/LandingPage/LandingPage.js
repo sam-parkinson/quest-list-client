@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../../components/Header/Header';
 
 /*
   TODO:
@@ -12,10 +13,7 @@ export default class LandingPage extends Component {
   render () {
     return (
       <div>
-        <header>
-          <h1>Questify</h1>
-          <span>Turn your mundane tasks into epic quests!</span>
-        </header>
+        <Header />
         <section>
           <h2>Log in or register</h2>
           <button>Log in</button>
