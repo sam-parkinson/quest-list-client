@@ -1,0 +1,19 @@
+ul {
+  list-style-type: none;
+}
+
+.sort ul {
+  text-align: center;
+  padding: 0;
+}
+
+.sort ul li {
+  display: inline-block;
+  margin: 0;
+}
+
+.quests ul li {
+  margin: 5px;
+  padding: 5px;
+  border: 1px black solid;
+}
