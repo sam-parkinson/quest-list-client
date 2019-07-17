@@ -4,7 +4,7 @@ const QuestListContext = React.createContext({
   questList: [],
   error: null,
   setQuestList: () => {},
-})
+});
 export default QuestListContext;
 
 export class QuestListProvider extends Component {

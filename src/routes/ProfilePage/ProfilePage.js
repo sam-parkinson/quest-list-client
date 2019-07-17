@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import QuestListContext from '../../contexts/QuestListContext';
 import { demoQuests } from '../../contexts/store';
 import Header from '../../components/Header/Header';
+import QuestListItem from '../../components/QuestListItem/QuestListItem';
 import './ProfilePage.css'
 
 /*
@@ -22,7 +23,11 @@ export default class ProfilePage extends Component {
   renderQuests() {
     const { questList = [] } = this.context;
     return questList.map(quest => 
-      <li key={quest.id}>{quest.questName}</li>
+      <QuestListItem
+        key={quest.id}
+        quest={quest}
+        url={this.props.match.url}
+      />
     )
   }
 
