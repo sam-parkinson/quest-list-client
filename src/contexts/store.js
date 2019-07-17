@@ -1,3 +1,10 @@
+const demoUser = [
+  {
+    userName: 'Macbeth',
+    id: 0,
+  }
+]
+
 const demoQuests = [
   {
     questName: 'Conquer Scotland',
@@ -61,4 +68,4 @@ const demoTasks = [
   },
 ];
 
-export { demoQuests, demoTasks };
+export { demoUser, demoQuests, demoTasks };

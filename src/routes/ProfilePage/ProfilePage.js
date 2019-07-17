@@ -34,7 +34,9 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header 
+          type='user'
+        />
         <section className="sort">
           <ul>
             <li><button>Sort option</button></li>

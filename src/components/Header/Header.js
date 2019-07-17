@@ -7,12 +7,32 @@ import React, { Component } from 'react';
 */
 
 export default class Header extends Component {
-  render() {
+
+  setHeader() {
+    let headText = {}
+
+    switch(this.props.type) {
+      case 'user':
+        headText = { h1: 'Profile', span: `This string will have some user-determined variable` };
+        break;
+      case 'quest':
+        headText = { h1: `Variable Quest Name`, span: `Maybe add a quest description, display it here?` };
+        break;
+      default:
+        headText = { h1: 'Questify', span: 'Turn your mundante tasks into epic quests!' }
+    }
+
     return (
       <header>
-        <h1>Questify</h1>
-        <span>Turn your mundane tasks into epic quests!</span>
+        <h1>{headText.h1}</h1>
+        <span>{headText.span}</span>
       </header>
+    )
+  }
+
+  render() {
+    return (
+      this.setHeader()
     )
   }
 }

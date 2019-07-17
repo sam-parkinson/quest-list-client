@@ -42,7 +42,9 @@ export default class QuestPage extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header 
+          type='quest'
+        />
         <section className='tasks'>
           <ul>
             {this.renderTasks()}
