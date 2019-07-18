@@ -19,6 +19,7 @@ const demoQuests = [
   {
     questName: 'Research Caesarean Sections',
     user: 'Macbeth',
+    password: '123AAaa!',
     id: 2,
   },
 ];

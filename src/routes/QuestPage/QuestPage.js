@@ -40,10 +40,12 @@ export default class QuestPage extends Component {
   }
 
   render() {
+    
     return (
       <div>
         <Header 
           type='quest'
+          questId={this.props.match.params.questId}
         />
         <section className='tasks'>
           <ul>
