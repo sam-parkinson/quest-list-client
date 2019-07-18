@@ -18,7 +18,6 @@ export default class Header extends Component {
 
   getQuestName = id => {
     const name = this.context.questList[id].questName
-    console.log(name)
     return name
   }
 
@@ -30,7 +29,10 @@ export default class Header extends Component {
         headText = { h1: 'Profile', span: `This string will have some user-determined variable` };
         break;
       case 'quest':
-        headText = { h1: this.getQuestName(this.props.questId), span: `Maybe add a quest description, display it here?` };
+        headText = { 
+          h1: this.getQuestName(this.props.questId), 
+          span: `Maybe add a quest description, display it here?` 
+        };
         break;
       default:
         headText = { h1: 'Questify', span: 'Turn your mundante tasks into epic quests!' }

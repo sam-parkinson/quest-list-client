@@ -20,8 +20,8 @@ export default class LandingPage extends Component {
         <Header />
         <section>
           <h2>Log in or register</h2>
-          <LinkButton to='/login' buttonText='Log In' />
-          <LinkButton to='/profile' buttonText='Register' />
+          <LinkButton to='/login'>Log in</LinkButton>
+          <LinkButton to='/profile'>Register</LinkButton>
         </section>
         <section>
           <h2>About</h2>

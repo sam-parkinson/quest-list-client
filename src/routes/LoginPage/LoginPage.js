@@ -15,10 +15,9 @@ export default class LoginPage extends Component {
             <label>Password: </label>
             <input></input>
             <br />
-            <LinkButton 
-              to='/profile'
-              buttonText='Submit' 
-            />
+            <LinkButton to='/profile'>
+              Log In
+            </LinkButton>
           </form>
         </section>
       </div>

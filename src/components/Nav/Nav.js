@@ -13,8 +13,8 @@ class Nav extends Component {
   render() {
     return (
       <nav role='navigation'>
-        <LinkButton to='/' buttonText='Home' />
-        <LinkButton to='/profile' buttonText='Profile' />
+        <LinkButton to='/'>Home</LinkButton>
+        <LinkButton to='/profile'>Profile</LinkButton>
       </nav>
     )
   }

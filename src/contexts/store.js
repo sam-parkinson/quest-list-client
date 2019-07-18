@@ -1,6 +1,7 @@
 const demoUser = [
   {
     userName: 'Macbeth',
+    password: '123AAaa!',
     id: 0,
   }
 ]
@@ -8,18 +9,20 @@ const demoUser = [
 const demoQuests = [
   {
     questName: 'Conquer Scotland',
+    questDesc: 'Generic description of quest',
     user: 'Macbeth',
     id: 0,
   },
   {
     questName: 'Do Laundry',
+    questDesc: 'Generic description of quest',
     user: 'Macbeth',
     id: 1,
   },
   {
     questName: 'Research Caesarean Sections',
+    questDesc: 'Generic description of quest',
     user: 'Macbeth',
-    password: '123AAaa!',
     id: 2,
   },
 ];

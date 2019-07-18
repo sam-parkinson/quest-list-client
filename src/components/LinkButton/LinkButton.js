@@ -8,7 +8,6 @@ class LinkButton extends Component {
       push: () => {}
     },
     to: '',
-    buttonText: ''
   }
 
   render() {
@@ -18,7 +17,7 @@ class LinkButton extends Component {
           this.props.history.push(this.props.to)
         }}
       >
-        {this.props.buttonText}
+        {this.props.children}
       </button>
     )
   }
