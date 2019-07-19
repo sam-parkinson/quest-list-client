@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import ProfilePage from '../../routes/ProfilePage/ProfilePage';
-import QuestPage from '../../routes/QuestPage/QuestPage';
+import QuestWrapper from '../../routes/QuestPage/QuestPage';
 import './App.css';
 
 // TODO: add routes for various views
@@ -40,7 +40,7 @@ class App extends Component {
             />
             <Route 
               path={'/profile/:questId'}
-              component={QuestPage}
+              component={QuestWrapper}
             />
           </Switch>
         </main>

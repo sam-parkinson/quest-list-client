@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import QuestListContext from '../../contexts/QuestListContext';
 import TaskListContext from '../../contexts/TaskListContext';
 import { demoTasks } from '../../contexts/store';
 import Header from '../../components/Header/Header';
@@ -16,44 +17,55 @@ import './QuestPage.css';
       Handle this on the backend
 */
 
-export default class QuestPage extends Component {
+
+class QuestPage extends Component {
   static defaultProps = {
     match: { params: {} },
-  }
-
-  static contextType = TaskListContext;
-
-  getId = () => {
-    return this.props.match.params.questId
+    questId: null,
+    tasks: {},
   }
 
   componentDidMount() {
-    const id = this.getId()
-    this.context.setTaskList(demoTasks.filter(
-      task => task.questId.toString() === id.toString()
-    ))
+    const tasks = this.props.tasks
+    const questId = this.props.questId
+    tasks.setTaskList(demoTasks.filter(task => task.questId === questId))
   }
 
   renderTasks() {
-    const { taskList = [] } = this.context;
-    return taskList.map(task =>
+    return this.props.tasks.taskList.map(task =>
       <TaskListItem key={task.id} task={task} />
     )
   }
 
   render() {
     return (
-      <div>
+      <>
         <Header 
           type='quest'
-          questId={Number(this.getId())}
+          questId={Number(this.props.questId)}
         />
         <section className='tasks'>
           <ul>
             {this.renderTasks()}
           </ul>
-        </section> 
-      </div>
+        </section>
+      </>
     )
   }
 }
+
+function QuestWrapper() { 
+  return (
+    <QuestListContext.Consumer>
+      {quests => (
+        <TaskListContext.Consumer>
+          {tasks => (
+            <QuestPage questId={quests.selected} tasks={tasks} />
+          )}
+        </TaskListContext.Consumer>
+      )}
+    </QuestListContext.Consumer>
+  )
+}
+
+export default QuestWrapper;

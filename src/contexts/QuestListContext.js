@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 
 const QuestListContext = React.createContext({
   questList: [],
+  selected: null,
   error: null,
   setQuestList: () => {},
+  handleSelectQuest: () => {},
 });
 export default QuestListContext;
 

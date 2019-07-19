@@ -5,6 +5,8 @@ const TaskListContext = React.createContext({
   error: null,
   setTaskList: () => {},
   updateComplete: () => {},
+  addTask: () => {},
+  deleteTask: () => {},
 });
 export default TaskListContext;
 
