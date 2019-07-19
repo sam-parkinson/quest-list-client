@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TaskListContext from '../../contexts/TaskListContext';
 import { demoTasks } from '../../contexts/store';
 import Header from '../../components/Header/Header';
+import TaskListItem from '../../components/TaskListItem/TaskListItem';
 import './QuestPage.css';
 
 /*
@@ -22,30 +23,30 @@ export default class QuestPage extends Component {
 
   static contextType = TaskListContext;
 
+  getId = () => {
+    return this.props.match.params.questId
+  }
+
   componentDidMount() {
-    const { questId } = this.props.match.params
+    const id = this.getId()
     this.context.setTaskList(demoTasks.filter(
-      task => task.questId.toString() === questId.toString()
+      task => task.questId.toString() === id.toString()
     ))
   }
 
   renderTasks() {
     const { taskList = [] } = this.context;
     return taskList.map(task =>
-      <li key={task.id}>
-        <span>{task.taskName}</span>
-        <p>{task.taskDesc}</p>
-      </li>  
+      <TaskListItem key={task.id} task={task} />
     )
   }
 
   render() {
-    
     return (
       <div>
         <Header 
           type='quest'
-          questId={this.props.match.params.questId}
+          questId={Number(this.getId())}
         />
         <section className='tasks'>
           <ul>

@@ -7,9 +7,14 @@ export default class QuestListItem extends Component {
     const { quest, url } = this.props;
     return (
       <li>
-        <Link to={`${url}/${quest.id}`}>
-          {quest.questName}
-        </Link>
+        <h2>
+          <Link 
+            to={`${url}/${quest.id}`}
+          >
+            {quest.questName}
+          </Link>
+        </h2>
+        <p>{quest.questDesc}</p>
       </li>
     )
   }
