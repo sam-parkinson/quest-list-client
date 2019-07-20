@@ -23,6 +23,7 @@ export default class QuestListItem extends Component {
           </Link>
         </h2>
         <p>{quest.questDesc}</p>
+        <p>Quest Progress Goes Here</p>
       </li>
     )
   }
