@@ -3,6 +3,7 @@ import QuestListContext from '../../contexts/QuestListContext';
 import { demoQuests } from '../../contexts/store';
 import Header from '../../components/Header/Header';
 import QuestListItem from '../../components/QuestListItem/QuestListItem';
+import { AddQuest } from '../../components/Forms/Forms';
 import './ProfilePage.css'
 
 /*
@@ -48,6 +49,7 @@ export default class ProfilePage extends Component {
           <ul>
             {this.renderQuests()}
           </ul>
+          <AddQuest />
         </section>
       </div>
     )

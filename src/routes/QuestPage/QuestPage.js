@@ -4,6 +4,7 @@ import TaskListContext from '../../contexts/TaskListContext';
 import { demoTasks } from '../../contexts/store';
 import Header from '../../components/Header/Header';
 import TaskListItem from '../../components/TaskListItem/TaskListItem';
+import { AddTask } from '../../components/Forms/Forms';
 import './QuestPage.css';
 
 /*
@@ -25,6 +26,7 @@ class QuestPage extends Component {
     tasks: {},
   }
 
+
   componentDidMount() {
     const tasks = this.props.tasks
     const questId = this.props.questId
@@ -42,12 +44,16 @@ class QuestPage extends Component {
       <>
         <Header 
           type='quest'
-          questId={Number(this.props.questId)}
+          questId={this.props.questId}
         />
         <section className='tasks'>
           <ul>
             {this.renderTasks()}
           </ul>
+          <AddTask 
+            questId={this.props.questId}
+
+          />
         </section>
       </>
     )
