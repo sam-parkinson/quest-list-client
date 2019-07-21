@@ -35,7 +35,7 @@ const demoTasks = [
     id: 0,
     taskName: 'Consort with witches',
     taskDesc: 'Bubble, bubble, toil, and trouble...',
-    completed: false,
+    completed: true,
     questId: 0,
   },
   {
@@ -49,7 +49,7 @@ const demoTasks = [
     id: 2,
     taskName: 'Recruit the Lady Macbeth for aid',
     taskDesc: 'I need help cleaning up the bloodstains on the bedsheets in my guest bedroom',
-    completed: false,
+    completed: true,
     questId: 1,
   },
   {
@@ -63,7 +63,7 @@ const demoTasks = [
     id: 4,
     taskName: 'Accept Promotion',
     taskDesc: 'King Duncan will be coming to my castle to offer me anothere Thanedom',
-    completed: false,
+    completed: true,
     questId: 0
   },
   {
