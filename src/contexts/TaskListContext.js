@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 const TaskListContext = React.createContext({
   taskList: [],
+  allTasks: [],
   error: null,
   setTaskList: () => {},
   updateComplete: () => {},
@@ -19,6 +20,10 @@ export class TaskListProvider extends Component {
   setTaskList = taskList => {
     this.setState({ taskList })
   };
+
+  setAllTasks = allTasks => {
+    this.setState({ allTasks })
+  }
 
   render() {
     const value = {

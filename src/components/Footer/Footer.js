@@ -7,7 +7,7 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        Footer text goes here!
+        Built with: React, Node.js
       </footer>
     )
   }
