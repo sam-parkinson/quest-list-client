@@ -35,7 +35,7 @@ export default class Header extends Component {
         };
         break;
       default:
-        headText = { h1: 'Questify', span: 'Turn your mundante tasks into epic quests!' }
+        headText = { h1: 'Questify', span: 'Turn your mundane tasks into epic quests!' }
     }
 
     return (
