@@ -2,18 +2,13 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
+import PrivateRoute from '../Utils/PrivateRoute';
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import ProfilePage from '../../routes/ProfilePage/ProfilePage';
 import QuestWrapper from '../../routes/QuestPage/QuestPage';
 import './App.css';
-
-// TODO: add routes for various views
-
-/*
-  TODO:
-    Add private/public routes
-*/
 
 class App extends Component {
 
@@ -23,22 +18,22 @@ class App extends Component {
         <Nav />
         <main>
           <Switch>
-            <Route 
+            <PublicOnlyRoute 
               exact
               path={'/'}
               component={LandingPage}
             />
-            <Route 
+            <PublicOnlyRoute 
               exact
               path={'/login'}
               component={LoginPage}
             />
-            <Route
+            <PrivateRoute
               exact 
               path={'/profile'}
               component={ProfilePage}
             />
-            <Route 
+            <PrivateRoute
               path={'/profile/:questId'}
               component={QuestWrapper}
             />
