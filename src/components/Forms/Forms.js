@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import TokenService from '../../services/token-service';
+import AuthApiService from '../../services/auth-api-service';
 import TaskListContext from '../../contexts/TaskListContext';
 import QuestListContext from '../../contexts/QuestListContext';
 import './Forms.css'
@@ -122,4 +124,69 @@ class AddQuest extends Component {
   }
 }
 
-export { AddTask, AddQuest }
+class LoginForm extends Component {
+  static defaultProps = {
+    onLoginSuccess: () => {}
+  }
+
+  state = { error: null };
+
+  handleSubmitJwtAuth = ev => {
+    ev.preventDefault();
+    this.setState({ error: null });
+    const { user_name, password } = ev.target;
+
+    AuthApiService.postLogin({
+      user_name: user_name.value,
+      password: password.value,
+    })
+      .then(res => {
+        user_name.value = ''
+        password.value = ''
+        TokenService.saveAuthToken(res.authToken)
+        this.props.onLoginSuccess()
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+  }
+
+  render() {
+    const { error } = this.state;
+    return (
+      <form
+        onSubmit={this.handleSubmitJwtAuth}
+      >
+        {/* <div role='alert'>
+          {error && <p>{error}</p>}
+        </div> */}
+        <div>
+          <label htmlFor='user_name'>
+            User name: {' '}
+          </label>
+          <input
+            required
+            name='user_name'
+            id='user_name'
+          />
+        </div>
+        <div>
+          <label htmlFor='password'>
+            Password: {' '}
+          </label>
+          <input
+            required
+            name='password'
+            type='password'
+            id='password'
+          />
+        </div>
+        <button type='submit'>
+          Log In
+        </button>
+      </form>
+    )
+  }
+}
+
+export { AddTask, AddQuest, LoginForm }
