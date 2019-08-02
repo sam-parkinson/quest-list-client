@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import shortid from 'shortid';
 import AuthApiService from '../../services/auth-api-service';
 import QuestsApiService from '../../services/quests-api-service';
 import TaskListContext from '../../contexts/TaskListContext';
@@ -39,10 +38,9 @@ class AddTask extends Component {
 
   makeTask = () => {
     const newTask = {
-      taskName: this.state.taskName,
-      taskDesc: this.state.taskDesc,
-      questId: this.props.questId,
-      id: shortid.generate()
+      task_name: this.state.taskName,
+      task_desc: this.state.taskDesc,
+      quest_id: this.props.questId,
     }
 
     return newTask;

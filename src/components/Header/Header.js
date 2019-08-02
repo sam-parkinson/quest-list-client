@@ -16,13 +16,16 @@ export default class Header extends Component {
 
   static contextType = QuestListContext
 
+  getQuestById = id => {
+    return this.context.questList.filter(quest => quest.id === id)[0]
+  }
+
   getQuestName = id => {
-    const name = this.context.questList[id].quest_name
-    return name
+    return this.getQuestById(id).quest_name
   }
 
   getQuestDesc = id => {
-    return this.context.questList[id].quest_desc
+    return this.getQuestById(id).quest_desc
   }
 
   setHeader() {

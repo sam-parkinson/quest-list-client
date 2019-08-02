@@ -19,7 +19,7 @@ const AuthApiService = {
       .then(res => {
         TokenService.saveAuthToken(res.authToken);
         IdleService.registerIdleTimerResets();
-        TokenService.queueCallbackBeforeExipry(() => {
+        TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()
         })
         return res
@@ -42,7 +42,7 @@ const AuthApiService = {
     )
     .then(res => {
       TokenService.saveAuthToken(res.authToken);
-      TokenService.queueCallbackBeforeExipry(() => {
+      TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken()
       })
       return res

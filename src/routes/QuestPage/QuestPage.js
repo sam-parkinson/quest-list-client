@@ -14,12 +14,12 @@ class QuestPage extends Component {
     tasks: {},
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const tasks = this.props.tasks
     const questId = this.props.questId
     QuestsApiService.getQuestAndTasks(questId)
       .then(res => {
-        tasks.setTaskList(res.tasks)
+        tasks.setTaskList(res.tasks);
       })
   }
 
