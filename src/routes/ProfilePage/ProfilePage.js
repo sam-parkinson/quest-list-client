@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import QuestListContext from '../../contexts/QuestListContext';
 import QuestsApiService from '../../services/quests-api-service';
-import { demoQuests } from '../../contexts/store';
 import Header from '../../components/Header/Header';
 import QuestListItem from '../../components/QuestListItem/QuestListItem';
 import { AddQuest } from '../../components/Forms/Forms';

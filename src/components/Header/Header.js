@@ -17,8 +17,12 @@ export default class Header extends Component {
   static contextType = QuestListContext
 
   getQuestName = id => {
-    const name = this.context.questList[id].questName
+    const name = this.context.questList[id].quest_name
     return name
+  }
+
+  getQuestDesc = id => {
+    return this.context.questList[id].quest_desc
   }
 
   setHeader() {
@@ -31,7 +35,7 @@ export default class Header extends Component {
       case 'quest':
         headText = { 
           h1: this.getQuestName(this.props.questId), 
-          span: `Maybe add a quest description, display it here?` 
+          span: this.getQuestDesc(this.props.questId),
         };
         break;
       default:

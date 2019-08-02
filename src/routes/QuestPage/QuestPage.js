@@ -14,7 +14,6 @@ class QuestPage extends Component {
     tasks: {},
   }
 
-
   componentDidMount() {
     const tasks = this.props.tasks
     const questId = this.props.questId

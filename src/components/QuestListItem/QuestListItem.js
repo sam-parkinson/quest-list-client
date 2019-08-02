@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import QuestListContext from '../../contexts/QuestListContext';
 import TaskListContext from '../../contexts/TaskListContext';
-import { demoTasks } from '../../contexts/store'
 import './QuestListItem.css';
 
 /*

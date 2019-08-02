@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import shortid from 'shortid';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
+import QuestsApiService from '../../services/quests-api-service';
 import TaskListContext from '../../contexts/TaskListContext';
 import QuestListContext from '../../contexts/QuestListContext';
 import './Forms.css'
@@ -75,33 +76,37 @@ class AddQuest extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      questName: '',
-      questDesc: '',
+      quest_name: '',
+      quest_desc: '',
     }
   }
 
   static contextType = QuestListContext;
 
-  postQuest(quest) {
-    console.log(quest)
-    // wire up to post to server
+  state = { error: null };
+
+  handleNameChange(quest_name) {
+    this.setState({quest_name});
   }
 
-  handleNameChange(questName) {
-    this.setState({questName});
-  }
-
-  handleDescChange(questDesc) {
-    this.setState({questDesc});
-  }
-
-  makeQuest = () => {
-
+  handleDescChange(quest_desc) {
+    this.setState({quest_desc});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.postQuest(this.makeQuest())
+    this.setState({ error: null });
+    const { quest_name, quest_desc } = e.target;
+    
+    QuestsApiService.postQuest({
+      quest_name: quest_name.value,
+      quest_desc: quest_desc.value,
+    })
+      .then(res => {
+        quest_name.value = '';
+        quest_desc.value = '';
+        console.log(res);
+      })
   }
 
   render() {
@@ -109,12 +114,12 @@ class AddQuest extends Component {
       <form onSubmit={e => this.handleSubmit(e)}>
         <h2>Start a new quest</h2>
         <p>
-          <label html="questName">Quest Name: </label>
-          <input type="text" id="questName" onChange={(e) => this.handleNameChange(e.target.value)} required />
+          <label htmlFor="quest_name">Quest Name: </label>
+          <input type="text" id="quest_name" onChange={(e) => this.handleNameChange(e.target.value)} required />
         </p>
         <p>
-          <label htmlFor="questDesc">Quest Description: </label>
-          <textarea type="text" id="questDesc" onChange={(e) => this.handleDescChange(e.target.value)} required />
+          <label htmlFor="quest_desc">Quest Description: </label>
+          <textarea type="text" id="quest_desc" onChange={(e) => this.handleDescChange(e.target.value)} required />
         </p>
         <button type='submit'>
           Begin quest!
