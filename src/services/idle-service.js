@@ -7,7 +7,7 @@ const IdleService = {
   setIdleCallback(idleCallback) {
     _idleCallback = idleCallback;
   },
-  resetIdleTimer(ev) {
+  resetIdleTimer() {
     clearTimeout(_timeoutId);
     _timeoutId = setTimeout(_idleCallback, _FIVE_MIN_MS);
   },

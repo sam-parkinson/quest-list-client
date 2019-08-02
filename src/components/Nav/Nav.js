@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import LinkButton from '../LinkButton/LinkButton';
+import LinkButton, { LogoutButton } from '../LinkButton/LinkButton';
 import TokenService from '../../services/token-service';
-import IdleService from '../../services/idle-service';
 
 /*
   TODO:
@@ -10,19 +9,9 @@ import IdleService from '../../services/idle-service';
 */
 
 class Nav extends Component {
-  handleLogoutClick = () => {
-    TokenService.clearAuthToken();
-    TokenService.clearCallbackBeforeExpiry();
-    IdleService.unRegisterIdleResets();
-  }
-
   renderLogout = () => {
     return (
-      <button
-        onClick={this.handleLogoutClick}
-      >
-        Log Out
-      </button>
+      <LogoutButton to='/'>Log Out</LogoutButton>
     )
   }
 
