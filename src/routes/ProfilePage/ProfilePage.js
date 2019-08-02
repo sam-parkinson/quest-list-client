@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
 import QuestListContext from '../../contexts/QuestListContext';
+import QuestsApiService from '../../services/quests-api-service';
 import { demoQuests } from '../../contexts/store';
 import Header from '../../components/Header/Header';
 import QuestListItem from '../../components/QuestListItem/QuestListItem';
 import { AddQuest } from '../../components/Forms/Forms';
 import './ProfilePage.css'
 
-/*
-  TODO:
-    Wire up context
-    List of quests should populate based on context - use forEach
-    Sort buttons should work based on quest name, quest date started, and stretch goal for quest completion percentage
-    Figure out how to implement sort buttons
-*/
-
 export default class ProfilePage extends Component {
   static contextType = QuestListContext;
 
   componentDidMount() {
-    this.context.setQuestList(demoQuests)
+    this.context.clearError()
+    QuestsApiService.getQuests()
+      .then(this.context.setQuestList)
+      .catch(this.context.setError)
   }
 
   renderQuests() {
     const { questList = [] } = this.context;
-    return questList.map(quest => 
+    return questList.map((quest, index) => 
       <QuestListItem
-        key={quest.id}
+        key={index}
+        urlAdd={index}
         quest={quest}
         url={this.props.match.url}
       />

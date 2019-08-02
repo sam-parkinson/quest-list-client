@@ -5,19 +5,34 @@ import './TaskListItem.css';
 export default class TaskListItem extends Component {
   static contextType = TaskListContext;
 
+  static defaultProps = {
+    taskId: null,
+  }
+
+  componentWillMount() {
+    const task = this.context.taskList.filter(task => task.id === this.props.taskId);
+    this.setState({
+      task: task[0],
+    });
+  }
+
   updateComplete = task => {
-    task.completed = !task.completed;
-    console.log(task.completed);
+    this.setState({
+      task: {
+        ...task,
+        completed: !task.completed
+      }
+    })
   }
 
   render() {
-    const { task } = this.props;
+    const task = this.state.task;
     return (
-      <li>
+      <li> 
         <h2>
-          {task.taskName}
+          {task.task_name}
         </h2>
-        <p>{task.taskDesc}</p>
+        <p>{task.task_desc}</p>
         {task.completed &&
         <p>Completed! (fancier indicator to come later)</p>
         }

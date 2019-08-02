@@ -19,18 +19,18 @@ export default class QuestListItem extends Component {
   }
 
   render() {
-    const { quest, url } = this.props;
+    const { quest, url, urlAdd } = this.props;
     return (
       <li>
         <h2>
           <Link 
-            to={`${url}/${quest.id}`}
+            to={`${url}/${urlAdd}`}
             onClick={() => {this.handleSelectQuest(quest.id)}}
           >
-            {quest.questName}
+            {quest.quest_name}
           </Link>
         </h2>
-        <p>{quest.questDesc}</p>
+        <p>{quest.quest_desc}</p>
         <Progress questId={quest.id} />
       </li>
     )

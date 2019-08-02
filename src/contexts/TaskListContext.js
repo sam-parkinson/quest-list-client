@@ -23,7 +23,7 @@ export class TaskListProvider extends Component {
 
   setAllTasks = allTasks => {
     this.setState({ allTasks })
-  }
+  };
 
   render() {
     const value = {
