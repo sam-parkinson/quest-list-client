@@ -9,46 +9,38 @@ class AddTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      taskName: '',
-      taskDesc: '',
+      task_name: '',
+      task_desc: '',
     }
+  }
+
+  static defaultProps = {
+    questId: null
   }
 
   static contextType = TaskListContext;
 
-  postTask(task) {
-    /*
-    fetch('to be wired up to server', {
-      method: 'POST',
-      body: JSON.stringify(task)
-    })
-     
-      TODO: add posting to server functionality
-    */
-   console.log(task)
+  state = { error: null }
+
+  handleNameChange(task_name) {
+    this.setState({task_name});
   }
 
-  handleNameChange(taskName) {
-    this.setState({taskName});
-  }
-
-  handleDescChange(taskDesc) {
-    this.setState({taskDesc});
-  }
-
-  makeTask = () => {
-    const newTask = {
-      task_name: this.state.taskName,
-      task_desc: this.state.taskDesc,
-      quest_id: this.props.questId,
-    }
-
-    return newTask;
+  handleDescChange(task_desc) {
+    this.setState({task_desc});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.postTask(this.makeTask())
+    this.setState({ error: null });
+    const { task_name, task_desc } = e.target;
+
+    QuestsApiService.postTask(
+      task_name.value,
+      task_desc.value,
+      this.props.questId
+    )
+    
   }
 
   render() {
@@ -56,12 +48,12 @@ class AddTask extends Component {
       <form onSubmit={e => this.handleSubmit(e)}>
         <h2>Add Task</h2>
         <p>
-          <label html="taskName">Task Name: </label>
-          <input type="text" id="taskName" onChange={(e) => this.handleNameChange(e.target.value)} required />
+          <label html="task_name">Task Name: </label>
+          <input type="text" id="task_name" onChange={(e) => this.handleNameChange(e.target.value)} required />
         </p>
         <p>
-          <label htmlFor="taskDesc">Task Description: </label>
-          <textarea type="text" id="taskDesc" onChange={(e) => this.handleDescChange(e.target.value)} required />
+          <label htmlFor="task_desc">Task Description: </label>
+          <textarea type="text" id="task_desc" onChange={(e) => this.handleDescChange(e.target.value)} required />
         </p>
         <button type="submit">Submit</button>
       </form>
@@ -95,10 +87,10 @@ class AddQuest extends Component {
     this.setState({ error: null });
     const { quest_name, quest_desc } = e.target;
     
-    QuestsApiService.postQuest({
-      quest_name: quest_name.value,
-      quest_desc: quest_desc.value,
-    })
+    QuestsApiService.postQuest(
+      quest_name.value,
+      quest_desc.value
+    )
       .then(res => {
         quest_name.value = '';
         quest_desc.value = '';

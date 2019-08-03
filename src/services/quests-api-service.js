@@ -30,11 +30,12 @@ const QuestsApiService = {
     return fetch(`${config.API_ENDPOINT}/quests`, {
       method: 'POST',
       headers: {
+        'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        quest_name,
-        quest_desc
+        quest_name: quest_name,
+        quest_desc: quest_desc,
       })
     })
       .then(res =>
@@ -47,6 +48,7 @@ const QuestsApiService = {
     return fetch(`${config.API_ENDPOINT}/tasks`, {
       method: 'POST',
       headers: {
+        'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
