@@ -150,9 +150,9 @@ class LoginForm extends Component {
       <form
         onSubmit={this.handleSubmitJwtAuth}
       >
-        {/* <div role='alert'>
+        <div role='alert'>
           {error && <p>{error}</p>}
-        </div> */}
+        </div>
         <div>
           <label htmlFor='user_name'>
             User name: {' '}
@@ -182,4 +182,68 @@ class LoginForm extends Component {
   }
 }
 
-export { AddTask, AddQuest, LoginForm }
+class RegisterForm extends Component {
+  static defaultProps = {
+    onRegistrationSuccess: () => {}
+  }
+
+  state = { error: null }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { user_name, password } = e.target;
+
+    this.setState({ error: null })
+    AuthApiService.postUser({
+      user_name: user_name.value,
+      password: password.value,
+    })
+      .then(user => {
+        user_name.value = '';
+        password.value = '';
+        this.props.onRegistrationSuccess();
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+  }
+
+  render() {
+    const { error } = this.state;
+    return (
+      <form
+        onSubmit={this.handleSubmit}
+      >
+        <div role='alert'>
+          {error && <p>{error}</p>}
+        </div>
+        <div>
+          <label htmlFor='user_name'>
+            User name: {' '}
+          </label>
+          <input
+            required
+            name='user_name'
+            id='user_name'
+          />
+        </div>
+        <div>
+          <label htmlFor='password'>
+            Password: {' '}
+          </label>
+          <input
+            required
+            name='password'
+            type='password'
+            id='password'
+          />
+        </div>
+        <button type='submit'>
+          Register
+        </button>
+      </form>
+    )
+  }
+}
+
+export { AddTask, AddQuest, LoginForm, RegisterForm }

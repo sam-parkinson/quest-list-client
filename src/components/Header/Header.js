@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import UserContext from '../../contexts/UserContext';
 import QuestListContext from '../../contexts/QuestListContext';
 
 /*
