@@ -25,7 +25,11 @@ class QuestPage extends Component {
 
   renderTasks() {
     return this.props.tasks.taskList.map(task =>
-      <TaskListItem key={task.id} taskId={task.id} />
+      <TaskListItem 
+        key={task.id} 
+        taskId={task.id} 
+        task={task} 
+      />
     )
   }
 

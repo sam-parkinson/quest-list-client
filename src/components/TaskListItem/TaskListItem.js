@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TaskListContext from '../../contexts/TaskListContext';
+import QuestsApiService from '../../services/quests-api-service';
 import './TaskListItem.css';
 
 export default class TaskListItem extends Component {
@@ -7,26 +8,17 @@ export default class TaskListItem extends Component {
 
   static defaultProps = {
     taskId: null,
+    task: {},
   }
 
-  componentWillMount() {
-    const task = this.context.taskList.filter(task => task.id === this.props.taskId);
-    this.setState({
-      task: task[0],
-    });
-  }
-
-  updateComplete = task => {
-    this.setState({
-      task: {
-        ...task,
-        completed: !task.completed
-      }
-    })
+  postComplete = (task) => {
+    // send PATCH request for task to API HERE
+    // upon 204, taskListContext executes this.context.updateComplete with task's ID
+    this.context.updateComplete(task.id)
   }
 
   render() {
-    const task = this.state.task;
+    const task = this.props.task;
     return (
       <li> 
         <h2>
@@ -38,7 +30,7 @@ export default class TaskListItem extends Component {
         }
         <span>
           <button
-            onClick={() => {this.updateComplete(task)}}
+            onClick={() => {this.postComplete(task)}}
           >
             Complete
           </button>
