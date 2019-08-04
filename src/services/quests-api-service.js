@@ -67,6 +67,7 @@ const QuestsApiService = {
     return fetch(`${config.API_ENDPOINT}/quests/${quest_id}`, {
       method: 'PATCH',
       headers: {
+        'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(obj)
@@ -81,6 +82,7 @@ const QuestsApiService = {
     return fetch(`${config.API_ENDPOINT}/tasks/${task_id}`, {
       method: 'PATCH',
       headers: {
+        'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(obj)

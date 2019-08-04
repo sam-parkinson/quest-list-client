@@ -12,9 +12,17 @@ export default class TaskListItem extends Component {
   }
 
   postComplete = (task) => {
-    // send PATCH request for task to API HERE
-    // upon 204, taskListContext executes this.context.updateComplete with task's ID
-    this.context.updateComplete(task.id)
+    QuestsApiService.updateTask(task.id, {completed: !this.props.task.completed,})
+    .then(res => 
+      this.context.updateComplete(task.id)
+    )
+  };
+
+  deleteTask = (id) => {
+    QuestsApiService.deleteTask(id)
+    .then(res =>
+      this.context.removeTask(id)
+    )
   }
 
   render() {
@@ -34,7 +42,11 @@ export default class TaskListItem extends Component {
           >
             Complete
           </button>
-          <button>Delete</button>
+          <button
+            onClick={() => this.deleteTask(task.id)}
+          >
+            Delete
+          </button>
         </span>
       </li>
     )

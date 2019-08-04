@@ -26,12 +26,10 @@ export class TaskListProvider extends Component {
   };
 
   updateComplete = (id) => {
-    console.log(id, ' completed?')
     const index = this.state.taskList.findIndex(task => task.id === id)
     const newList = this.state.taskList
 
     newList[index].completed = !newList[index].completed
-    console.log(newList[index])
 
     this.setState({
       taskList: newList
@@ -39,7 +37,10 @@ export class TaskListProvider extends Component {
   };
 
   removeTask = (id) => {
-    // fill this in later
+    const newList = this.state.taskList.filter(task => task.id !== id);
+    this.setState({
+      taskList: newList,
+    });
   }
 
   render() {
@@ -48,6 +49,7 @@ export class TaskListProvider extends Component {
       error: this.state.error,
       setTaskList: this.setTaskList,
       updateComplete: this.updateComplete,
+      removeTask: this.removeTask,
     }
     return (
       <TaskListContext.Provider value={value}>
