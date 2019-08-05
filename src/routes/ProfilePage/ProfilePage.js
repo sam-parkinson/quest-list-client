@@ -4,7 +4,7 @@ import QuestsApiService from '../../services/quests-api-service';
 import Header from '../../components/Header/Header';
 import QuestListItem from '../../components/QuestListItem/QuestListItem';
 import { AddQuest } from '../../components/Forms/Forms';
-import './ProfilePage.css'
+import './ProfilePage.css';
 
 export default class ProfilePage extends Component {
   static contextType = QuestListContext;

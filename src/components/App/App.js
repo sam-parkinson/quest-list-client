@@ -7,6 +7,7 @@ import PrivateRoute from '../Utils/PrivateRoute';
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
+import DemoPage from '../../routes/DemoPage/DemoPage';
 import ProfilePage from '../../routes/ProfilePage/ProfilePage';
 import QuestWrapper from '../../routes/QuestPage/QuestPage';
 import TokenService from '../../services/token-service';
@@ -61,6 +62,10 @@ class App extends Component {
             <PublicOnlyRoute 
               path={'/register'}
               component={RegisterPage}
+            />
+            <PublicOnlyRoute 
+              path={'/demo'}
+              component={DemoPage}
             />
             <PrivateRoute
               exact 

@@ -17,9 +17,9 @@ class Nav extends Component {
 
   renderDemo = () => {
     return (
-      <button>
+      <LinkButton to='/demo'>
         Demo
-      </button>
+      </LinkButton>
     )
   }
 

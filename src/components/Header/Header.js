@@ -40,8 +40,11 @@ export default class Header extends Component {
           span: this.getQuestDesc(this.props.questId),
         };
         break;
+      case 'demo':
+        headText= { h1: 'Demo', span: 'See how Questify looks!' };
+        break;
       default:
-        headText = { h1: 'Questify', span: 'Turn your mundane tasks into epic quests!' }
+        headText = { h1: 'Questify', span: 'Turn your mundane tasks into epic quests!' };
     }
 
     return (
