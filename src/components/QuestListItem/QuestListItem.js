@@ -7,7 +7,6 @@ import './QuestListItem.css';
 /*
   TODO:
     Implement percentage tracking function
-    Maybe figure out some new progress tracker or figure out why the ANT component not working
 */
 
 export default class QuestListItem extends Component {

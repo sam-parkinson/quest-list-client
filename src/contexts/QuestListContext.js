@@ -5,7 +5,9 @@ const QuestListContext = React.createContext({
   selected: null,
   error: null,
   setError: () => {},
+  clearError: () => {},
   setQuestList: () => {},
+  addQuest: () => {},
   handleSelectQuest: () => {},
 });
 export default QuestListContext;
@@ -18,6 +20,13 @@ export class QuestListProvider extends Component {
 
   setQuestList = questList => {
     this.setState({ questList })
+  }
+  
+  addQuest = (quest) => {
+    const newList = this.state.questList.concat(quest);
+    this.setState({ 
+      questList: newList, 
+    });
   }
 
   setError = error => {
@@ -35,6 +44,7 @@ export class QuestListProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setQuestList: this.setQuestList,
+      addQuest: this.addQuest,
     }
     return (
       <QuestListContext.Provider value={value}>

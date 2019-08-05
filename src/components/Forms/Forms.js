@@ -40,6 +40,11 @@ class AddTask extends Component {
       task_desc.value,
       this.props.questId
     )
+      .then(res => {
+        task_name.value = '';
+        task_desc.value = '';
+        this.context.addTask(res);
+      })
     
   }
 
@@ -94,7 +99,7 @@ class AddQuest extends Component {
       .then(res => {
         quest_name.value = '';
         quest_desc.value = '';
-        console.log(res);
+        this.context.addQuest(res)
       })
   }
 

@@ -18,22 +18,25 @@ export class TaskListProvider extends Component {
   };
 
   setTaskList = taskList => {
-    this.setState({ taskList })
+    this.setState({ taskList });
   };
 
-  setAllTasks = allTasks => {
-    this.setState({ allTasks })
-  };
+  addTask = (task) => {
+    const newList = this.state.taskList.concat(task);
+    this.setState({ 
+      taskList: newList, 
+    });
+  }
 
   updateComplete = (id) => {
-    const index = this.state.taskList.findIndex(task => task.id === id)
-    const newList = this.state.taskList
+    const index = this.state.taskList.findIndex(task => task.id === id);
+    const newList = this.state.taskList;
 
-    newList[index].completed = !newList[index].completed
+    newList[index].completed = !newList[index].completed;
 
     this.setState({
-      taskList: newList
-    })
+      taskList: newList,
+    });
   };
 
   removeTask = (id) => {
@@ -50,6 +53,7 @@ export class TaskListProvider extends Component {
       setTaskList: this.setTaskList,
       updateComplete: this.updateComplete,
       removeTask: this.removeTask,
+      addTask: this.addTask,
     }
     return (
       <TaskListContext.Provider value={value}>

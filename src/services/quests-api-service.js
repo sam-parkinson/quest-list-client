@@ -75,7 +75,7 @@ const QuestsApiService = {
       .then(res =>
         (!res.ok) 
           ? res.json().then(e => Promise.reject(e))
-          : res.json()   
+          : res   
       )
   },
   updateTask(task_id, obj) {
@@ -90,7 +90,7 @@ const QuestsApiService = {
       .then(res =>
         (!res.ok) 
           ? res.json().then(e => Promise.reject(e))
-          : res.json()   
+          : res  
       )
   },
   deleteQuest(quest_id) {
@@ -100,6 +100,11 @@ const QuestsApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
+      .then(res =>
+        (!res.ok) 
+          ? res.json().then(e => Promise.reject(e))
+          : res  
+      )
   },
   deleteTask(task_id) {
     return fetch(`${config.API_ENDPOINT}/tasks/${task_id}`, {
@@ -108,6 +113,11 @@ const QuestsApiService = {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
+      .then(res =>
+        (!res.ok) 
+          ? res.json().then(e => Promise.reject(e))
+          : res  
+      )
   },
 }
 

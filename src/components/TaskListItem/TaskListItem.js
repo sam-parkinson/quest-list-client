@@ -34,7 +34,7 @@ export default class TaskListItem extends Component {
         </h2>
         <p>{task.task_desc}</p>
         {task.completed &&
-        <p>Completed! (fancier indicator to come later)</p>
+        <p>Completed!</p>
         }
         <span>
           <button
