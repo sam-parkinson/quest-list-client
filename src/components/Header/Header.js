@@ -32,7 +32,7 @@ export default class Header extends Component {
 
     switch(this.props.type) {
       case 'user':
-        headText = { h1: 'Profile', span: `This string will have some user-determined variable` };
+        headText = { h1: 'Profile', span: `View your quests and progress` };
         break;
       case 'quest':
         headText = { 

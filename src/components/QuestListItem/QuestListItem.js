@@ -29,7 +29,10 @@ export default class QuestListItem extends Component {
           </Link>
         </h2>
         <p>{quest.quest_desc}</p>
-        <Progress questId={quest.id} />
+        <Progress 
+          completed={quest.completed_tasks}
+          total={quest.total_tasks}
+        />
       </li>
     )
   }
@@ -38,17 +41,15 @@ export default class QuestListItem extends Component {
 class Progress extends Component {  
   static defaultProps = {
     tasks: {},
+    completed: '',
+    total: '',
   }
 
   static contextType = TaskListContext
 
-  /*
-    Figure out how to wire this up
-  */
-
   render() {
     return(
-      <p>Progress for quest with id {this.props.questId} goes here</p>
+      <p>Progress: {this.props.completed} tasks completed out of {this.props.total}</p>
     )
   }
 }
