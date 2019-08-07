@@ -49,7 +49,7 @@ class Progress extends Component {
 
   render() {
     return(
-      <p>Progress: {this.props.completed} tasks completed out of {this.props.total}</p>
+      <p>Progress: {this.props.completed} of {this.props.total} tasks completed</p>
     )
   }
 }
