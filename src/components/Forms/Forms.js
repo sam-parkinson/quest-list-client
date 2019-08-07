@@ -3,6 +3,7 @@ import AuthApiService from '../../services/auth-api-service';
 import QuestsApiService from '../../services/quests-api-service';
 import TaskListContext from '../../contexts/TaskListContext';
 import QuestListContext from '../../contexts/QuestListContext';
+import UserContext from '../../contexts/UserContext';
 import './Forms.css'
 
 class AddTask extends Component {
@@ -128,6 +129,8 @@ class LoginForm extends Component {
     onLoginSuccess: () => {}
   }
 
+  static contextType = UserContext;
+
   state = { error: null };
 
   handleSubmitJwtAuth = ev => {
@@ -143,6 +146,7 @@ class LoginForm extends Component {
         user_name.value = ''
         password.value = ''
         this.props.onLoginSuccess()
+        this.context.logInTrue()
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -189,8 +193,10 @@ class LoginForm extends Component {
 
 class RegisterForm extends Component {
   static defaultProps = {
-    onRegistrationSuccess: () => {}
+    onRegisterSuccess: () => {}
   }
+
+  static contextType = UserContext
 
   state = { error: null }
 
@@ -204,9 +210,16 @@ class RegisterForm extends Component {
       password: password.value,
     })
       .then(user => {
-        user_name.value = '';
-        password.value = '';
-        this.props.onRegistrationSuccess();
+        user_name.value = '';        
+        AuthApiService.postLogin({
+          user_name: user.user_name,
+          password: password.value,
+        })
+          .then(res => {
+            password.value = '';
+            this.props.onRegisterSuccess();
+            this.context.logInTrue();
+          })     
       })
       .catch(res => {
         this.setState({ error: res.error })

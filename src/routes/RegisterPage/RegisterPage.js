@@ -11,7 +11,7 @@ export default class RegisterPage extends Component {
 
   handleRegisterSucess = () => {
     const { history } = this.props;
-    history.push('/login')
+    history.push('/')
   }
 
   render() {

@@ -12,11 +12,19 @@ class QuestPage extends Component {
     match: { params: {} },
     questId: null,
     tasks: {},
+    history: {
+      push: () => {},
+    }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const tasks = this.props.tasks
     const questId = this.props.questId
+
+    if (!questId) {
+      return this.props.history.push('/')
+    }
+
     QuestsApiService.getQuestAndTasks(questId)
       .then(res => {
         tasks.setTaskList(res.tasks);

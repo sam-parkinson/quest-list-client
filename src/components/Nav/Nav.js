@@ -1,38 +1,33 @@
 import React, { Component } from 'react';
 import LinkButton, { LogoutButton } from '../LinkButton/LinkButton';
-import TokenService from '../../services/token-service';
-
-/*
-  TODO:
-    Add more nav components
-    Switches?
-*/
+import UserContext from '../../contexts/UserContext';
 
 class Nav extends Component {
-  renderLogout = () => {
+  static contextType = UserContext
+
+  renderLoggedIn = () => {
     return (
-      <LogoutButton to='/'>Log Out</LogoutButton>
+      <nav role='navigation'>
+        <LinkButton to='/profile'>View Quests</LinkButton>
+        <LogoutButton>Log Out</LogoutButton>
+      </nav>
     )
   }
 
-  renderDemo = () => {
+  renderNoToken = () => {
     return (
-      <LinkButton to='/demo'>
-        Demo
-      </LinkButton>
+      <nav role='navigation'>
+        <LinkButton to='/'>Home</LinkButton>
+        <LinkButton to='/demo'>Demo</LinkButton>
+      </nav>
     )
   }
 
   render() {
     return (
-      <nav role='navigation'>
-        <LinkButton to='/'>Home</LinkButton>
-        <LinkButton to='/profile'>Profile</LinkButton>
-        {TokenService.hasAuthToken()
-          ? this.renderLogout()
-          : this.renderDemo()
-        }
-      </nav>
+      this.context.loggedIn
+        ? this.renderLoggedIn()
+        : this.renderNoToken()        
     )
   }
 }

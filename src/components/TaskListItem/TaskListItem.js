@@ -11,10 +11,17 @@ export default class TaskListItem extends Component {
     task: {},
   }
 
-  postComplete = (task) => {
-    QuestsApiService.updateTask(task.id, {completed: !this.props.task.completed,})
+  postComplete = (id) => {
+    QuestsApiService.updateTask(
+      id, 
+      {completed: 
+        this.props.task.completed === false 
+          ? true 
+          : false,
+      }
+    )
     .then(res => 
-      this.context.updateComplete(task.id)
+      this.context.updateComplete(id)
     )
   };
 
@@ -23,7 +30,13 @@ export default class TaskListItem extends Component {
     .then(res =>
       this.context.removeTask(id)
     )
-  }
+  };
+
+  completeButtonText = (bool) => {
+    return bool === true
+      ? 'Reopen'
+      : 'Complete'
+  };
 
   render() {
     const task = this.props.task;
@@ -38,9 +51,9 @@ export default class TaskListItem extends Component {
         }
         <span>
           <button
-            onClick={() => {this.postComplete(task)}}
+            onClick={() => {this.postComplete(task.id)}}
           >
-            Complete
+            {this.completeButtonText(task.completed)}
           </button>
           <button
             onClick={() => this.deleteTask(task.id)}

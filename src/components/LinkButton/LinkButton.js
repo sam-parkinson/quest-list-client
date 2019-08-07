@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import UserContext from '../../contexts/UserContext';
 import TokenService from '../../services/token-service';
 import IdleService from '../../services/idle-service';
 
@@ -31,21 +32,23 @@ class LogoutButton extends Component {
     history: {
       push: () => {}
     },
-    to: '',
   }
+
+  static contextType = UserContext;
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
+    this.context.logInFalse();
   }
 
   render() {
     return (
       <button 
         onClick={() => {
-          this.handleLogoutClick()
-          this.props.history.push(this.props.to)
+          this.handleLogoutClick();
+          this.props.history.push('/login');
         }}
       >
         {this.props.children}

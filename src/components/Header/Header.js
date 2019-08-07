@@ -35,10 +35,10 @@ export default class Header extends Component {
         headText = { h1: 'Profile', span: `View your quests and progress` };
         break;
       case 'quest':
-        headText = { 
+        headText = this.props.questId ? { 
           h1: this.getQuestName(this.props.questId), 
           span: this.getQuestDesc(this.props.questId),
-        };
+        } : { h1: 'Questify', span: 'Turn your mundane tasks into epic quests!' };
         break;
       case 'demo':
         headText= { h1: 'Demo', span: 'See how Questify looks!' };
