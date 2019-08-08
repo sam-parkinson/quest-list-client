@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import QuestListContext from '../../contexts/QuestListContext';
-
-/*
-  TODO:
-    Header should take context/path/?, change depending on what page is currently being displayed
-    Use location to determine header text?
-    rewrite logic to get questId from something other than passed in context?
-*/
+import './Header.css'
 
 export default class Header extends Component {
   static defaultProps = {
