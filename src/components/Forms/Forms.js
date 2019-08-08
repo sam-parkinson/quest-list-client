@@ -51,7 +51,10 @@ class AddTask extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)}>
+      <form 
+        className='task_form'
+        onSubmit={e => this.handleSubmit(e)}
+      >
         <h2>Add Task</h2>
         <p>
           <label html="task_name">Task Name: </label>
@@ -106,7 +109,10 @@ class AddQuest extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)}>
+      <form 
+        className='quest_form'
+        onSubmit={e => this.handleSubmit(e)}
+      >
         <h2>Start a new quest</h2>
         <p>
           <label htmlFor="quest_name">Quest Name: </label>
@@ -157,6 +163,7 @@ class LoginForm extends Component {
     const { error } = this.state;
     return (
       <form
+        className='login_form'
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
@@ -230,6 +237,7 @@ class RegisterForm extends Component {
     const { error } = this.state;
     return (
       <form
+        className='register_form'
         onSubmit={this.handleSubmit}
       >
         <div role='alert'>

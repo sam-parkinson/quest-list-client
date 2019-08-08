@@ -41,7 +41,7 @@ export default class TaskListItem extends Component {
   render() {
     const task = this.props.task;
     return (
-      <li> 
+      <li className='task_card'> 
         <h2>
           {task.task_name}
         </h2>

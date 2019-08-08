@@ -19,7 +19,7 @@ export default class QuestListItem extends Component {
   render() {
     const { quest, url, urlAdd } = this.props;
     return (
-      <li>
+      <li className='quest_card'>
         <h2>
           <Link 
             to={`${url}/${urlAdd}`}

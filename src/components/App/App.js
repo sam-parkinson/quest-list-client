@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Nav />
-        <main>
+        <main className='content'>
           <Switch>
             <PublicOnlyRoute 
               exact

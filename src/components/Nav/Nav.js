@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LinkButton, { LogoutButton } from '../LinkButton/LinkButton';
 import UserContext from '../../contexts/UserContext';
+import './Nav.css';
 
 class Nav extends Component {
   static contextType = UserContext
