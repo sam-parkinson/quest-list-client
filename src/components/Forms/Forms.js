@@ -56,15 +56,20 @@ class AddTask extends Component {
         onSubmit={e => this.handleSubmit(e)}
       >
         <h2>Add Task</h2>
-        <p>
+        <div>
           <label html="task_name">Task Name: </label>
           <input type="text" id="task_name" onChange={(e) => this.handleNameChange(e.target.value)} required />
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="task_desc">Task Description: </label>
           <textarea type="text" id="task_desc" onChange={(e) => this.handleDescChange(e.target.value)} required />
-        </p>
-        <button type="submit">Submit</button>
+        </div>
+        <button 
+          className='add_or_edit'
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     )
   }
@@ -114,15 +119,18 @@ class AddQuest extends Component {
         onSubmit={e => this.handleSubmit(e)}
       >
         <h2>Start a new quest</h2>
-        <p>
+        <div>
           <label htmlFor="quest_name">Quest Name: </label>
           <input type="text" id="quest_name" onChange={(e) => this.handleNameChange(e.target.value)} required />
-        </p>
-        <p>
+        </div>
+        <div>
           <label htmlFor="quest_desc">Quest Description: </label>
           <textarea type="text" id="quest_desc" onChange={(e) => this.handleDescChange(e.target.value)} required />
-        </p>
-        <button type='submit'>
+        </div>
+        <button 
+          className='add_or_edit'
+          type='submit'
+        >
           Begin quest!
         </button>
       </form>
@@ -171,7 +179,7 @@ class LoginForm extends Component {
         </div>
         <div>
           <label htmlFor='user_name'>
-            User name: {' '}
+            User name:
           </label>
           <input
             required
@@ -181,7 +189,7 @@ class LoginForm extends Component {
         </div>
         <div>
           <label htmlFor='password'>
-            Password: {' '}
+            Password:
           </label>
           <input
             required
@@ -251,7 +259,6 @@ class RegisterForm extends Component {
           <label htmlFor='user_name'>
             Username:
           </label>
-          <br />
           <input
             required
             name='user_name'
@@ -260,7 +267,7 @@ class RegisterForm extends Component {
         </div>
         <div>
           <label htmlFor='password'>
-            Password: {' '}
+            Password:
           </label>
           <input
             required
@@ -271,7 +278,7 @@ class RegisterForm extends Component {
         </div>
         <div>
           <label htmlFor='repeat_password'>
-            Repeat Password: {' '}
+            Repeat Password:
           </label>
           <input
             required

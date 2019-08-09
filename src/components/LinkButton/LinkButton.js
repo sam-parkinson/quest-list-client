@@ -17,6 +17,7 @@ class LinkButton extends Component {
   render() {
     return (
       <button 
+        className='linkButton'
         onClick={() => {
           this.props.history.push(this.props.to)
         }}
@@ -47,6 +48,7 @@ class LogoutButton extends Component {
   render() {
     return (
       <button 
+        className='linkButton'
         onClick={() => {
           this.handleLogoutClick();
           this.props.history.push('/login');

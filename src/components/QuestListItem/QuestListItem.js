@@ -47,9 +47,36 @@ class Progress extends Component {
 
   static contextType = TaskListContext
 
+  makeProgressBar = (total, completed) => {
+    const filledArray = []
+    const emptyArray = []
+
+    for (let i = 0; i < completed; i++) {
+      filledArray[i] = <li className='filled' key={i}>f</li>
+    }
+
+    if (total - completed > 0) {
+      for (let i = 0; i < (total - completed); i++) {
+        emptyArray[i] = <li className='empty' key={-(i+1)}>e</li>
+      }
+    }  
+    
+    return ( total > 0 
+      ? <ul className='progress_bar'>
+          {filledArray}
+          {emptyArray}
+        </ul>
+      : <p>No tasks added yet!</p>
+    )
+  }
+
   render() {
     return(
-      <p>Progress: {this.props.completed} of {this.props.total} tasks completed</p>
+      <div>
+        <p>Progress:</p>
+        <p>{this.props.completed} out of {this.props.total}</p>
+        {this.makeProgressBar(this.props.total, this.props.completed)}
+      </div>
     )
   }
 }

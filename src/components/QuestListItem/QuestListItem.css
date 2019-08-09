@@ -4,4 +4,17 @@
   border-radius: 4px;
   margin: 5px;
   padding: 5px;
-};
+}
+
+.quest_card h2 * {
+  color: #7A5802;
+}
+
+.quest_card h2 *:visited {
+  color: #402301;
+}
+
+.quest_card p {
+  font-family: 'Lato', Helvetica, sans-serif;
+  color: #0C1653;
+}

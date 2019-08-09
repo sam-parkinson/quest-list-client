@@ -41,15 +41,12 @@ export default class TaskListItem extends Component {
   render() {
     const task = this.props.task;
     return (
-      <li className='task_card'> 
+      <li className={`task_card ${task.completed ? 'completed' : 'incomplete'}`}> 
         <h2>
           {task.task_name}
         </h2>
         <p>{task.task_desc}</p>
-        {task.completed &&
-        <p>Completed!</p>
-        }
-        <span>
+        <div className='buttons'>
           <button
             onClick={() => {this.postComplete(task.id)}}
           >
@@ -60,7 +57,7 @@ export default class TaskListItem extends Component {
           >
             Delete
           </button>
-        </span>
+        </div>
       </li>
     )
   }

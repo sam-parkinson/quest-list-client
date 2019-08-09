@@ -12,6 +12,28 @@ form div {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+  color: #0C1653;
+}
+
+form button {
+  font-family: 'Grenze', Times, serif;
+  border-radius: 3px;
+  background-color: #FFB65F;
+  border: 3px solid #7A4302;
+  color: #0C1653;
+  padding: 5px;
+  margin: 5px;
+  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+}
+
+form button:hover, form button:focus {
+  background-color: #7A4302;
+  border: 3px solid #FFB65F;
+  color: #6979D8;
 }
 
 label {
@@ -20,7 +42,7 @@ label {
   display: inline-block;
 }
 
-input {
+input, textarea {
   display: block;
   width: 100%;
   border: 3px solid #7A5802;
@@ -31,4 +53,8 @@ input {
   font-family: 'Lato', Helvetica, sans-serif;
   font-size: 16px;
   color: #402301
+}
+
+.add_or_edit {
+  width: 120px;
 }
