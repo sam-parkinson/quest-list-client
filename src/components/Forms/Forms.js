@@ -209,9 +209,13 @@ class RegisterForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { user_name, password } = e.target;
+    const { user_name, password, repeat_password } = e.target;
 
     this.setState({ error: null })
+
+    if (password.value !== repeat_password.value) 
+      return this.setState({ error: `Passwords do not match` })
+
     AuthApiService.postUser({
       user_name: user_name.value,
       password: password.value,
@@ -245,8 +249,9 @@ class RegisterForm extends Component {
         </div>
         <div>
           <label htmlFor='user_name'>
-            User name: {' '}
+            Username:
           </label>
+          <br />
           <input
             required
             name='user_name'
@@ -264,9 +269,25 @@ class RegisterForm extends Component {
             id='password'
           />
         </div>
+        <div>
+          <label htmlFor='repeat_password'>
+            Repeat Password: {' '}
+          </label>
+          <input
+            required
+            name='repeat_password'
+            type='repeat_password'
+            id='repeat_password'
+          />
+        </div>
         <button type='submit'>
           Register
         </button>
+        <br />
+        <span className='password_req'>
+          Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character, must not start or end with empty space, and must be at least eight characters long
+        </span>
+        
       </form>
     )
   }

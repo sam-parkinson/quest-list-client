@@ -5,3 +5,30 @@ form {
   margin: 5px;
   padding: 5px;
 }
+
+form div {
+  width: 60%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+label {
+  font-family: 'Grenze', Times, serif;
+  text-align: left;
+  display: inline-block;
+}
+
+input {
+  display: block;
+  width: 100%;
+  border: 3px solid #7A5802;
+  border-radius: 3px;
+}
+
+.password_req {
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 16px;
+  color: #402301
+}
