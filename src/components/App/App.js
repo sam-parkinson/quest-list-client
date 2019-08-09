@@ -77,8 +77,8 @@ class App extends Component {
               component={QuestWrapper}
             />
           </Switch>
-        </main>
-        <Footer />
+          <Footer />
+        </main>        
       </div>
     )
   }

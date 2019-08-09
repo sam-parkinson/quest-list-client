@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import LinkButton from '../../components/LinkButton/LinkButton';
+import './LandingPage.css';
 
 export default class LandingPage extends Component {
   render () {
     return (
       <div>
         <Header />
-        <section>
-          <h2>Log in or register</h2>
+        <section className='usage_buttons'>
           <LinkButton to='/login'>Log in</LinkButton>
           <LinkButton to='/register'>Register</LinkButton>
         </section>
         <section>
           <h2>What is Questify?</h2>
-          <p>
+          <p className='desc_text'>
             Capture the satisfaction of completing missions and quests in a video game, 
             while getting more things done in your everyday life!
             <br />

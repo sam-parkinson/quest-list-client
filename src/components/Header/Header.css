@@ -1,7 +1,11 @@
 h1 {
   color: #0C1653;
+  font-family: 'Cinzel', Times, serif;
+  font-size: 36px;
 }
 
 header span {
   color: #0C1653;
+  font-family: 'Grenze', Times, serif;
+  font-size: 28px;
 }

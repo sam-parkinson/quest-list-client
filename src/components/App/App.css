@@ -6,6 +6,11 @@ header {
   flex: 1 0 auto;
 }
 
+.content {
+  position: relative;
+  top: 60px;
+}
+
 section {
   margin: 0;
   padding: 0;

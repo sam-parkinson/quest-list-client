@@ -1,6 +1,7 @@
 .footer {
   flex-shrink: 0;
-  padding: 20px;
+  padding: 15px;
   color: #FFB65F;
   background-color: #18648D;
+  font-family: 'Grenze', Times, serif;
 }

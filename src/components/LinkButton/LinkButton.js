@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TokenService from '../../services/token-service';
 import IdleService from '../../services/idle-service';
+import './LinkButton.css';
 
 class LinkButton extends Component {
   static defaultProps = {
