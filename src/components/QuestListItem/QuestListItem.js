@@ -52,12 +52,12 @@ class Progress extends Component {
     const emptyArray = []
 
     for (let i = 0; i < completed; i++) {
-      filledArray[i] = <li className='filled' key={i}>f</li>
+      filledArray[i] = <li className='filled' key={i}></li>
     }
 
     if (total - completed > 0) {
       for (let i = 0; i < (total - completed); i++) {
-        emptyArray[i] = <li className='empty' key={-(i+1)}>e</li>
+        emptyArray[i] = <li className='empty' key={-(i+1)}></li>
       }
     }  
     
@@ -72,9 +72,8 @@ class Progress extends Component {
 
   render() {
     return(
-      <div>
-        <p>Progress:</p>
-        <p>{this.props.completed} out of {this.props.total}</p>
+      <div className='progress'>
+        <h3>Progress:</h3>
         {this.makeProgressBar(this.props.total, this.props.completed)}
       </div>
     )

@@ -18,3 +18,49 @@
   font-family: 'Lato', Helvetica, sans-serif;
   color: #0C1653;
 }
+
+.progress {
+  padding: 5px;
+  font-family: 'Grenze', Times, serif;
+}
+
+.progress h3 {
+  margin: 12px;
+}
+
+.progress_bar {
+  width: 60%;
+  height: 20px;
+  border: 3px solid #402E01;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.progress_bar li {
+  display: inline;
+  flex: 1 1 auto;
+  border: 1px solid #402E01;
+}
+
+.progress_bar li:first-child {
+  border-radius: 7px 0px 0px 7px;
+}
+
+.progress_bar li:last-child {
+  border-radius: 0px 7px 7px 0px;
+}
+
+.progress_bar li:only-child {
+  border-radius: 7px;
+}
+
+.filled {
+  background-color: #7A5802;
+}
+
+.empty {
+  background-color: #FFD25F
+}

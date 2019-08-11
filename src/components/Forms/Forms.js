@@ -283,7 +283,7 @@ class RegisterForm extends Component {
           <input
             required
             name='repeat_password'
-            type='repeat_password'
+            type='password'
             id='repeat_password'
           />
         </div>
