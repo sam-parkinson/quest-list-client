@@ -4,6 +4,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   background-color: #18648D;
   display: flex;
   flex-direction: row;
@@ -28,4 +29,12 @@ nav button:hover, nav button:focus {
   background-color: #7A4302;
   border: 2px solid #FFB65F;
   color: #6979D8;
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    max-width: inherit;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

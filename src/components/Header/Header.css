@@ -9,3 +9,7 @@ header span {
   font-family: 'Grenze', Times, serif;
   font-size: 28px;
 }
+
+header {
+  max-height: 250px;
+}
