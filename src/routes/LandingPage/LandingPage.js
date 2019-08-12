@@ -8,10 +8,6 @@ export default class LandingPage extends Component {
     return (
       <div>
         <Header />
-        <section className='usage_buttons'>
-          <LinkButton to='/login'>Log in</LinkButton>
-          <LinkButton to='/register'>Register</LinkButton>
-        </section>
         <section>
           <h2>What is Questify?</h2>
           <p className='desc_text'>
@@ -28,6 +24,10 @@ export default class LandingPage extends Component {
             over time.
           </p>
         </section>
+        <section className='usage_buttons'>
+          <LinkButton to='/login'>Log in</LinkButton>
+          <LinkButton to='/register'>Register</LinkButton>
+        </section>       
       </div>
     )
   }

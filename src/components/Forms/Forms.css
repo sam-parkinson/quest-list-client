@@ -25,9 +25,9 @@ form button {
   margin: 5px;
   transition-duration: 0.2s;
   -webkit-transition-duration: 0.2s;
-  width: 80px;
-  height: 40px;
-  font-size: 16px;
+  width: 100px;
+  height: 50px;
+  font-size: 18px;
 }
 
 form button:hover, form button:focus {
@@ -47,6 +47,18 @@ input, textarea {
   width: 100%;
   border: 3px solid #7A5802;
   border-radius: 3px;
+  font-size: 18px;
+  font-family: 'Lato', Helvetica, sans-serif;
+}
+
+input {
+  height: 30px;
+  padding: 5px;
+}
+
+textarea {
+  height: 70px;
+  padding: 5px;
 }
 
 .password_req {

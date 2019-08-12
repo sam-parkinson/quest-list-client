@@ -14,15 +14,18 @@ nav {
 }
 
 nav button {
-  border-radius: 2px;
+  height: 45px;
+  width: 100px;
   background-color: #FFB65F;
-  border: 2px solid #7A4302;
+  border: 3px solid #7A4302;
+  border-radius: 3px;
   color: #0C1653;
   padding: 5px;
   margin: 5px;
   transition-duration: 0.2s;
   -webkit-transition-duration: 0.2s;
   font-family: 'Grenze', Times, serif;
+  font-size: 18px;
 }
 
 nav button:hover, nav button:focus {
@@ -36,5 +39,14 @@ nav button:hover, nav button:focus {
     max-width: inherit;
     margin-left: auto;
     margin-right: auto;
+    height: 80px;
+  }
+
+  nav button {
+    height: 60px;
+    width: 120px;
+    border: 4px solid #7A4302;
+    border-radius: 4px;
+    font-size: 22px;
   }
 }
