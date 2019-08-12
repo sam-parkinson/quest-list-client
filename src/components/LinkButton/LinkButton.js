@@ -28,7 +28,7 @@ class LinkButton extends Component {
   }
 }
 
-class LogoutButton extends Component {
+class LogoutButtonBase extends Component {
   static defaultProps = {
     location: {},
     history: {
@@ -62,4 +62,4 @@ class LogoutButton extends Component {
 
 export default withRouter(LinkButton);
 
-export { LogoutButton }
+export const LogoutButton = withRouter(LogoutButtonBase);
