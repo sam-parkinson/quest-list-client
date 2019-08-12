@@ -35,7 +35,7 @@ export default class Header extends Component {
         } : { h1: 'Questify', span: 'Turn your mundane tasks into epic quests!' };
         break;
       case 'demo':
-        headText = { h1: 'Demo', span: 'See how Questify looks!' };
+        headText = { h1: 'Demo', span: 'See what Questify looks like!' };
         break;
       case 'login':
         headText = { h1: 'Log In', span: 'Turn your mundane tasks into epic quests!' };

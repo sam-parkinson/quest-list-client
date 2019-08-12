@@ -34,13 +34,6 @@ export default class ProfilePage extends Component {
         <Header 
           type='user'
         />
-        {/*<section className="sort">
-          <ul>
-            <li><button>Sort option</button></li>
-            <li><button>Sort option</button></li>
-            <li><button>Sort option</button></li>
-          </ul>
-        </section>*/}
         <section className="quests">
           <ul>
             {this.renderQuests()}
