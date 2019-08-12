@@ -12,6 +12,12 @@ import './QuestListItem.css';
 export default class QuestListItem extends Component {
   static contextType = QuestListContext
 
+  static defaultProps = {
+    quest: {},
+    url: '',
+    urlAdd: ''
+  }
+
   handleSelectQuest = (id) => {
     this.context.selected = id
   }
