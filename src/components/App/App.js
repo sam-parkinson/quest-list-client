@@ -35,6 +35,7 @@ class App extends Component {
   componentWillUnmount() {
     IdleService.unRegisterIdleResets();
     TokenService.clearCallbackBeforeExpiry();
+    TokenService.clearAuthToken();
   }
 
   logoutFromIdle = () => {
