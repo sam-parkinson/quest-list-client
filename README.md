@@ -67,8 +67,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-## Notes for further development
-
-Currently using a short UUID generator (shortid) to generate unique ids for tasks and quests, may change this
-
-Using ANT Design components for statistics providers
