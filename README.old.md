@@ -1,1 +1,0 @@
-# quest-list-client
